@@ -1,0 +1,18 @@
+Package: mSSL
+Type: Package
+Title: The Multivariate Spike-and-Slab LASSO
+Version: 1.0
+Date: 2019-01-25
+Author: Sameer K. Deshpande [aut, cre]
+Maintainer: Sameer Deshpande <sameerd@alum.mit.edu>
+Description: Efficient algorithms for fitting regularization paths for multivariate linear models and Gaussian graphical models with Spike-and-Slab LASSO penalization. Algorithms are multivariate extension of the Spike-and-Slab LASSO procedure of Rockova and George (2018) <doi:10.1080/016251459.2016.1260469>.  
+URL: https://arxiv.org/abs/1708.08911
+Depends:
+License: GPL-3
+RoxygenNote: 6.0.1
+NeedsCompilation: yes
+Imports: 
+    Rcpp (>= 0.12.16),
+    SSLASSO
+LinkingTo: Rcpp, RcppArmadillo
+Suggests: MASS

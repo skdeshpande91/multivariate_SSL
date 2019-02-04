@@ -1,0 +1,6 @@
+import('stats')
+import('graphics')
+import('grDevices')
+importFrom(Rcpp, evalCpp)
+export("mSSL_dpe", "mSSL_dcpe", "gSSL", "sep_sslg", "error_B", "error_Omega", "plot_support")
+useDynLib(mSSL, '_mSSL_mSSL_dpe', '_mSSL_mSSL_dcpe')
