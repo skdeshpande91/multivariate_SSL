@@ -60,10 +60,10 @@ mSSL_dpe(X, Y,
   \item{Omega_path}{A q x q x L^2 array containing the MAP estimate of Omega corresponding to each posterior explored}
   \item{theta_path}{An L x L matrix containing the MAP estimate of theta from each posterior explored}
   \item{eta_path}{An L x L matrix containing the MAP estimate of eta from each posterior explored}
- \item{time}{Total time in seconds}
- \item{lambda0}{The vector of lambda0's used. This is used for plotting purposes. See \link{\code{plot_support}}}
- \item{xi0}{The vector of xi0's used. This is primarily used for plotting purposes. See \link{\code{plot_support}}}
- \item{early_term}{A vector of length L^2 of binary indicators that tell whether the ECM algorithm terminated early due to a severely ill-conditioned residual covariance matrix. This is primarily used for plotting purposes. See \link{\code{plot_support}}.}
+  \item{time}{Total time in seconds}
+  \item{lambda0}{The vector of lambda0's used. This is used for plotting purposes. See \link{\code{plot_support}}}
+  \item{xi0}{The vector of xi0's used. This is primarily used for plotting purposes. See \link{\code{plot_support}}}
+  \item{early_term}{A vector of length L^2 of binary indicators that tell whether the ECM algorithm terminated early due to a severely ill-conditioned residual covariance matrix. This is primarily used for plotting purposes. See \link{\code{plot_support}}.}
 }
 \references{
   \itemize{
