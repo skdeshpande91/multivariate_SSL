@@ -1,19 +1,17 @@
-\name{error_B}
-\alias{error_B}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\name{error_Omega}
+\alias{error_Omega}
 \title{
 Function to compute various error measures for B
 }
 \description{
-This function computes various performance measures to evaluate the estimated B. It includes measures of support recovery as well as estimation accuracy. Note: using this function only makes sense for simulation experiments where we know the actual B that generated the data
+This function computes various performance measures to evaluate the estimated Omega. It includes measures of support recovery as well as estimation accuracy. Note: using this function only makes sense for simulation experiments where we know the actual Omega that generated the data
 }
 \usage{
-error_B(B, B_orig)
+error_Omega(Omega, Omega_orig)
 }
 \arguments{
-  \item{B}{Estimated matrix B
-}
-  \item{B_orig}{The B matrix used to generate the data}
+  \item{Omega}{Estimated matrix Omega}
+  \item{Omega_orig}{The Omega matrix used to generate the data}
 }
 \details{
 }
@@ -29,7 +27,7 @@ Returns a vector with the following named entries
   \item{ACC}{Accuracy. Equal to (TP + TN)/(TP + TN + FP + FN)}
   \item{F1}{F1 Score. Equal to (2 * TP)/(2 * TP + FP + FN)}
   \item{MCC}{Matthew Correlation Coefficient. Equal to (TP/N - S * P)/sqrt(PS(1 - S)(1 - P)), where N = TN + TP + FN + FP, S = (TP + FN)/N, and P = (TP + FP)/N.}
-  \item{MSE}{Mean square error. Equal to mean((B - B_orig)^2)}
+  \item{FROB}{Frobenius norm of Omega - Omega_orig.}
 }
 \references{
 }
@@ -39,10 +37,9 @@ Sameer Deshpande
 \note{
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{error_Omega}}
+\code{\link{error_B}}
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{

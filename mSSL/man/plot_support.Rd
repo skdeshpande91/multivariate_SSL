@@ -18,7 +18,7 @@ plot_support(fit_mSSL_dpe)
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-There is a point in the plot for each combination of lambda0 and xi0 along the DPE path.
+Each point in the plot corresponds to a different combination of lambda0 and xi0 along the DPE path.
 Red X's indicate posterior means which may be numerical unstable (i.e. have residual covariance matrices with very high condition number). 
 Blue +'s indicate that the support of the estimated B and Omega for the corresponding combination of spike penalties is identical to the estimated supports at the end of the path.
 Black dots correspond to modes where the estimated supports differ from the final supports.
