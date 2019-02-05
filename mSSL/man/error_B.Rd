@@ -10,7 +10,7 @@ Function to compute various error measures for B
 This function computes various performance measures to evaluate the estimated B. It includes measures of support recovery as well as estimation accuracy. Note: using this function only makes sense for simulation experiments where we know the actual B that generated the data
 }
 \usage{
-error_B(B, B_Orig)
+error_B(B, B_orig)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

@@ -2,10 +2,10 @@ error_B <- function(B, B_orig){
   
     perf <- rep(NA, times = 11)
     names(perf) <- c("TP", "TN", "FP", "FN", "SEN", "SPE", "PREC", "ACC",  "F1", "MCC", "MSE")
-    tp <- sum(B != 0 & B.orig != 0)
-    tn <- sum(B == 0 & B.orig == 0)
-    fp <- sum(B != 0 & B.orig == 0)
-    fn <- sum(B == 0 & B.orig != 0)
+    tp <- sum(B != 0 & B_orig != 0)
+    tn <- sum(B == 0 & B_orig == 0)
+    fp <- sum(B != 0 & B_orig == 0)
+    fn <- sum(B == 0 & B_orig != 0)
     
     sen <- tp/(tp + fn)
     spe <- tn/(tn + fp)
