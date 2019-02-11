@@ -13,7 +13,7 @@ Note: \code{mSSL_dcpe} is substantially faster than \code{\link{mSSL_dpe}}. Howe
 It is recommended to run both \code{mSSL_dcpe} and \code{\link{mSSL_dpe}} and to compare the results.
 }
 \usage{
-mSSL_dcpe(X, Y, lambdas = list(lambda1 = 1, lambda0 = seq(1, nrow(X), length = 10)),
+mSSL_dcpe(X, Y, lambdas = list(lambda1 = 1, lambda0 = seq(10, nrow(X), length = 10)),
          xis = list(xi1 = 0.01 * nrow(X), xi0 = seq(0.1 * nrow(X), nrow(X), length = 10)),
          theta_hyper_params = c(1, ncol(X) * ncol(Y)), 
          eta_hyper_params = c(1, ncol(Y)),
@@ -88,6 +88,6 @@ Omega_orig[abs(Omega_orig) < 1e-3] <- 0
 set.seed(130)
 E <- mvrnorm(n, rep(0, times = q), Sigma_orig)
 Y <- XB + E
-fit_mSSL_dcpe <- mSSL_dcpe(X, Y)
+fit_dcpe <- mSSL_dcpe(X, Y)
 
 }

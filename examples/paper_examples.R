@@ -24,9 +24,57 @@ set.seed(724)
 E <- mvrnorm(n, rep(0, times = q), Sigma_orig)
 Y <- XB + E
 
-# May need to run it with a finer grid. It seems like DPE over-selected Beta and has diagonal Omega.
-fit_mSSL_dcpe <- mSSL_dcpe(X,Y)
+fit_dpe <- mSSL_dpe(X,Y)
+fit_dcpe <- mSSL_dcpe(X,Y)
 
-fit_mSSL_dpe <- mSSL_dpe(X,Y)
+#save(fit__dcpe, fit_dpe, X, Y,E, B_orig, Omega_orig, file = "feb8.RData")
 
-save(fit_mSSL_dcpe, fit_mSSL_dpe, X, Y,E, B_orig, Omega_orig, file = "feb7.RData")
+
+# Make a histogram
+
+png("B_histogram.png", width = 8, height = 4, units = "in", res = 600)
+par(mar = c(3,3,2,1), mgp = c(1.8, 0.5, 0), cex.main = 0.9, cex.lab = 0.9, cex.axis = 0.9, mfrow = c(1,2))
+# mSSL-DPE
+hist(B_orig[fit_dpe$B != 0 & B_orig != 0], breaks = seq(-2, 2, length = 50), 
+     ylim = c(0, 85), col  = rgb(0,0,1,1/3), freq = TRUE, main = "mSSL-DPE", xlab = expression(beta[j*k]))
+hist(B_orig[fit_dpe$B == 0 & B_orig != 0], breaks = seq(-2,2,length = 50),
+     ylim = c(0, 85), col = rgb(1,0,0,1/3), freq = TRUE, add = TRUE)
+legend(x = -2, y = 80, pch = 15, col = c(rgb(0,0,1,1/3), rgb(1,0,0,1/3)), legend = c("True Positive", "False Negative"),
+       bty = "n", horiz = TRUE, cex = 0.9)
+box()
+hist(B_orig[fit_dcpe$B != 0 & B_orig != 0], breaks = seq(-2, 2, length = 50), 
+     ylim = c(0, 85), col  = rgb(0,0,1,1/3), freq = TRUE, main = "mSSL-DCPE", xlab = expression(beta[j*k]))
+hist(B_orig[fit_dcpe$B == 0 & B_orig != 0], breaks = seq(-2,2,length = 50),
+     ylim = c(0, 85), col = rgb(1,0,0,1/3), freq = TRUE, add = TRUE)
+legend(x = -2, y = 80, pch = 15, col = c(rgb(0,0,1,1/3), rgb(1,0,0,1/3)), legend = c("True Positive", "False Negative"),
+       bty = "n", horiz = TRUE, cex = 0.9)
+box()
+dev.off()
+
+
+png("B_histogram_bw.png", width = 8, height = 4, units = "in", res = 600)
+par(mar = c(3,3,2,1), mgp = c(1.8, 0.5, 0), cex.main = 0.9, cex.lab = 0.9, cex.axis = 0.9, mfrow = c(1,2))
+# mSSL-DPE
+hist(B_orig[fit_dpe$B != 0 & B_orig != 0], breaks = seq(-2, 2, length = 50), 
+     ylim = c(0, 85), col  = rgb(204/255,204/255,204/255,1/2), freq = TRUE, main = "mSSL-DPE", xlab = expression(beta[j*k]))
+hist(B_orig[fit_dpe$B == 0 & B_orig != 0], breaks = seq(-2,2,length = 50),
+     ylim = c(0, 85), col = rgb(55/255,51/255,51/255,1/2), freq = TRUE, add = TRUE)
+legend(x = -2, y = 80, pch = c(15,15), col = c(rgb(204/255,204/255,204/255,1), rgb(51/255,51/255,51/255,1/2)), legend = c("True Positive", "False Negative"),
+       bty = "n", horiz = TRUE, cex = 0.9)
+box()
+hist(B_orig[fit_dcpe$B != 0 & B_orig != 0], breaks = seq(-2, 2, length = 50), 
+     ylim = c(0, 85), col  = rgb(204/255,204/255,204/255,1/2), freq = TRUE, main = "mSSL-DCPE", xlab = expression(beta[j*k]))
+hist(B_orig[fit_dcpe$B == 0 & B_orig != 0], breaks = seq(-2,2,length = 50),
+     ylim = c(0, 85), col = rgb(55/255,51/255,51/255,1/2), freq = TRUE, add = TRUE)
+legend(x = -2, y = 80, pch = c(15,15), col = c(rgb(204/255,204/255,204/255,1), rgb(51/255,51/255,51/255,1/2)), legend = c("True Positive", "False Negative"),
+       bty = "n", horiz = TRUE, cex = 0.9)
+box()
+dev.off()
+
+
+
+# Make a support stability plot
+png("support_trajectory.png", width = 4, height = 4, units = "in", res = 600)
+par(mar = c(3,3,2,1), mgp = c(1.8, 0.5, 0), cex.main = 0.9, cex.lab = 0.9, cex.axis = 0.9)
+plot_support(fit_dpe)
+dev.off()
