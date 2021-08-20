@@ -1052,8 +1052,7 @@ List gSSL(arma::mat Y,
   
   // Initialize stuff for QUIC
   cube res_quic(q,q,2);
-  double* S_ptr = S.memptr();
-  double* Xi_ptr = xi_star.memptr();
+  
   
   // Initialize iterators and counters
   int t = 0;

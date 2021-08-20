@@ -259,7 +259,7 @@ double projLogDet(int q, const arma::mat &S,
 	return logdet;
 }
 
-// [[Rcpp::export]]
+
 cube my_quic(const int &q, 
 const arma::mat &S, const arma::mat &Rho, 
 const double &tol, 
