@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // mSSL_dpe
 List mSSL_dpe(arma::mat X, arma::mat Y, List lambdas, List xis, arma::vec theta_hyper_params, arma::vec eta_hyper_params, int diag_penalty, int max_iter, double eps, int s_max_condition, int obj_counter_max, int verbose);
 RcppExport SEXP _mSSL_mSSL_dpe(SEXP XSEXP, SEXP YSEXP, SEXP lambdasSEXP, SEXP xisSEXP, SEXP theta_hyper_paramsSEXP, SEXP eta_hyper_paramsSEXP, SEXP diag_penaltySEXP, SEXP max_iterSEXP, SEXP epsSEXP, SEXP s_max_conditionSEXP, SEXP obj_counter_maxSEXP, SEXP verboseSEXP) {
