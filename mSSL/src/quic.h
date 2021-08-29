@@ -536,7 +536,7 @@ int &max_iter_quic)
 	//dGap = gap;
 	//iter = NewtonIter;
 
-	//free(activeSet);
+	free(activeSet);
 	//free(U);
 	//free(D);
 	
